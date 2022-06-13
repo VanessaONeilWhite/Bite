@@ -1,0 +1,36 @@
+{# search for a restaurant card #}
+
+{% extends 'base.html.j2'%}
+{% block title %}
+Grab a Bite
+{% endblock %}
+
+{% block content %}
+
+<h1> Search Here </h1>
+<form action ="/bite" method="POST">
+    <div class="mb-3">
+        <label for = "zip" class="form-label">Zip Code</label>
+        <input type="text" name="zip" class ="form-control" id="zip">
+    </div>
+    <div class = "mb-3">
+        <label for="restaurants" class ="form-label">Restaurants</label>
+        <input type="text" name="restaurant" class="form-control" id="restaurant">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Grab A Bite</button>
+</form>
+{% if bite %}
+
+    <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Restaurant</h5>
+        <p class="card-text">Description?</p>
+        <a href="#" class="btn btn-primary">Grab a Bite</a>
+        <a href="#" class="btn btn-primary">Pass</a>
+    </div>
+    </div>
+{% endif %}
+
+{% endblock %}
