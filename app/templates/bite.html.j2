@@ -8,14 +8,10 @@ Grab a Bite
 {% block content %}
 
 <h1> Search Here </h1>
-<form action ="/bite" method="POST">
+<form action ="{{url_for('main.bite')}}" method="POST">
     <div class="mb-3">
-        <label for = "zip" class="form-label">Zip Code</label>
-        <input type="text" name="zip" class ="form-control" id="zip">
-    </div>
-    <div class = "mb-3">
-        <label for="restaurants" class ="form-label">Restaurants</label>
-        <input type="text" name="restaurant" class="form-control" id="restaurant">
+        <label for = "location" class="form-label">Type your city here:</label>
+        <input type="text" name="location" class ="form-control" id="location">
     </div>
 
     <button type="submit" class="btn btn-primary">Grab A Bite</button>
