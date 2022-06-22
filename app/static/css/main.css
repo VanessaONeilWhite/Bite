@@ -5,26 +5,50 @@
 body{
     background-color: #F7FFF7;
     background-size: cover;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-nav li{
-    display:inline-flex;
-    padding-top:10px;
-    padding-bottom:10px;
-    font-family: 'Courier New', Courier, monospace
+#pen{
+    left:800px;
 }
 
 #nav-logo{
-    /* position: absolute; */
+    position: absolute;
     height: 50px;
     width: 100px;
 
 }
 
 #nav-logo img{
-    height: 200px;
-    width: 200px;
+    height: 500px;
+    width: 500x;
     position: absolute;
-    top: 0px;
-    left:520px;
+    top: -100px;
+    left:710px;
+}
+
+.navbar{
+    background-color: #F7FFF7;
+}
+
+.btn{
+    background-color: #E9077D;
+    color: #F7FFF7; 
+}
+
+#icons{
+    text-align: right;
+}
+
+h6{
+    text-align: center;
+}
+
+.card{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.card-text{
+    text-align: center;
 }

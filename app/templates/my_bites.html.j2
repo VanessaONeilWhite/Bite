@@ -2,9 +2,24 @@
 {% extends 'base.html.j2' %}
 
 {% block title %}
-Pick a bite!
 {% endblock %}
 
 {% block content %}
 <h1>My Bites</h1>
+
+{% for bite in bites%}
+    
+    
+    <p class="card-text">{{bite.name}}</p>
+    <div class="card" style="width: 18rem;">
+    <img src="{{bite.image_url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <p class="card-text">{{bite.categories}}</p>
+        <p class="card-text">{{bite.url}}</p>
+        <a href="{{bite.url}}" class="btn btn-primary">Grab a Bite</a>
+        <a href="#" class="btn btn-primary">Pass</a>
+    </div>
+    </div>
+{% endfor %} 
+
 {% endblock %}

@@ -3,6 +3,10 @@ from flask_login import UserMixin
 from datetime import datetime as dt
 from werkzeug.security import generate_password_hash, check_password_hash
 
+userbites=db.Table('userbites',
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
+    db.Column('bite_id', db.Integer, db.ForeignKey('bite.id'), primary_key=True),
+    )
 class User(UserMixin, db.Model):
     id= db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String)
@@ -10,7 +14,8 @@ class User(UserMixin, db.Model):
     email= db.Column(db.String, unique=True, index=True)
     password = db.Column(db.String)
     created_on= db.Column(db.DateTime, default=dt.utcnow)
-    icon= db.Column(db.String)
+    bites = db.relationship('Bite', secondary='userbites', backref='biter', lazy="dynamic")
+    
     def __repr__(self):
         return f'<User: {self.email} | {self.id}>'
 
@@ -33,6 +38,11 @@ class User(UserMixin, db.Model):
     def save(self):
         db.session.add(self)
         db.session.commit()
+
+    def add_bites(self,bite):
+        self.bites.append(bite)
+        db.session.commit()
+    
 
     def get_icon_url(self):
         return f'https://avatars.dicebar.com/api/initials/{self.icon}.svg'
@@ -70,3 +80,4 @@ class Bite(db.Model):
     def save(self): 
         db.session.add(self)
         db.session.commit()
+

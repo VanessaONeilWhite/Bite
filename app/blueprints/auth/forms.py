@@ -20,9 +20,6 @@ class RegisterForm(FlaskForm):
             validators=[DataRequired(), EqualTo('password', message='Password Must Match')])
     submit= SubmitField('Register') 
 
-    img = markupsafe.Markup(f'<img src="https://avatars.dicebear.com/api/initials/{first_name}.svg" height="75px">')
-    icon = RadioField('Avatar', validators=[DataRequired()],
-        choices=[(img)])
     
     
     def validate_email(form,field):
@@ -39,10 +36,6 @@ class EditProfileForm(FlaskForm):
             validators=[DataRequired(), EqualTo('password', message='Password Must Match')])
     submit= SubmitField('Register') 
 
-    img = markupsafe.Markup(f'<img src="https://avatars.dicebear.com/api/initials/{first_name}.svg" height="75px">')
-    
-    icon = RadioField('Avatar', validators=[DataRequired()],
-        choices=[(9000, "Don't Change"),(img)])
 
 class BiteForm(FlaskForm):
     location =StringField('Enter your city', validators=[DataRequired()])

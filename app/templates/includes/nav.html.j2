@@ -1,9 +1,8 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg bg-#F7FFF7">
   <div id="nav-logo">
-  <img src="https://res.cloudinary.com/dentfkaun/image/upload/v1654822531/7587520ccdfb4cf6ae6c68ab5e664c5c_xbmk9u.png">
+  <img src="https://res.cloudinary.com/dentfkaun/image/upload/v1655835814/My_project_v8pkzc.png">
   </div>
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Bite</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,16 +20,13 @@
       <div>
         {% if current_user.is_authenticated %}
         <ul class="navbar-nav ms-auto align-items-center">
-        <a href='#'>
-            <img src="{{current_user.get_icon_url()}}" style="height:50px;">
-        </a>
         <li class="nav-item"> 
         <div class="row">
-        <div class="col-12">
-            <a class="nav-link" href="{{url_for('auth.edit_profile')}}"><i class="bi bi-pen-fill"></i></a>
+        <div class="col-3">
+            <a class="nav-link" id="icons"  href="{{url_for('auth.edit_profile')}}"><i class="bi bi-pen-fill"></i></a>
         </div>
-        <div class="col-12">
-            <a class="nav-link" href="{{url_for('auth.logout')}}"><i class="bi bi-door-closed-fill"></i></a>
+        <div class="col-3">
+            <a class="nav-link" id ="icons" href="{{url_for('auth.logout')}}"><i class="bi bi-door-closed-fill"></i></a>
         </div>
         </div>
             

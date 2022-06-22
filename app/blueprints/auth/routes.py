@@ -40,7 +40,6 @@ def register():
                 "last_name":form.last_name.data.title(),
                 "email":form.email.data.lower(),
                 "password": form.password.data,
-                "icon": form.icon.data
             }
             new_user_object=User()
             new_user_object.from_dict(new_user_data)

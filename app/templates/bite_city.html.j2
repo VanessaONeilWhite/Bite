@@ -1,0 +1,37 @@
+{# search for a restaurant card #}
+
+{% extends 'base.html.j2'%}
+{% block title %}
+Grab a Bite
+{% endblock %}
+
+{% block content %}
+<br> 
+<br>
+<br>
+<br>
+<h6> You look like you could use something to eat! </h6>
+{% if bite %}
+    
+    
+    <p class="card-text">{{bite.name}}</p>
+    <div class="card" style="width: 18rem;">
+    <img src="{{bite.image_url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <p class="card-text">{{bite.categories}}</p>
+        <form action= "/add_to_my_bites" method="POST">
+            <input value={{city}} name="city" hidden>
+            <input value={{bite.id}} name="id" hidden>
+            <button type="submit"  class="btn btn-primary">Grab a Bite</button>
+        </form>
+        <form action= "/add_to_my_bites" method="POST">
+            <input value={{city}} name="city" hidden>
+            <input value="" name="id" hidden>
+            <button type="submit"  class="btn btn-primary">pass</button>
+        </form>
+        </form>
+    </div>
+    </div>
+{% endif %}
+
+{% endblock %}
