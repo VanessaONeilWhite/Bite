@@ -5,19 +5,23 @@
 {% endblock %}
 
 {% block content %}
-<h1>My Bites</h1>
-
+<h3>My Bites</h3>
+<br>
+<br>
+<br>
+<br>
+<br> 
 {% for bite in bites%}
     
     
-    <p class="card-text">{{bite.name}}</p>
+    
     <div class="card" style="width: 18rem;">
+    <p class="card-text">{{bite.name}}</p>
     <img src="{{bite.image_url}}" class="card-img-top" alt="...">
     <div class="card-body">
         <p class="card-text">{{bite.categories}}</p>
-        <p class="card-text">{{bite.url}}</p>
         <a href="{{bite.url}}" class="btn btn-primary">Grab a Bite</a>
-        <a href="#" class="btn btn-primary">Pass</a>
+        <a href="{{url_for('main.pass_my_bites', id=bite.id)}}" class="btn btn-primary">Pass</a>
     </div>
     </div>
 {% endfor %} 

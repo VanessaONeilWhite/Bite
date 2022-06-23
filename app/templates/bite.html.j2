@@ -10,7 +10,12 @@ Grab a Bite
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br> 
 <h6> You look like you could use something to eat! </h6>
+
 <form action ="{{url_for('main.bite')}}" method="POST">
 {{ form.hidden_tag()}}
     <div class="mb-3">
@@ -27,12 +32,13 @@ Grab a Bite
     
     
     <p class="card-text">{{bite.name}}</p>
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 25rem;">
     <img src="{{bite.image_url}}" class="card-img-top" alt="...">
     <div class="card-body">
         <p class="card-text">{{bite.categories}}</p>
-        <a href="{{url_for('main.add_to_my_bites', id=bite.id, city=city)}}" class="btn btn-primary">Grab a Bite</a>
-        <a href="{{url_for('main.bite')}}" class="btn btn-primary">Pass</a>
+        <a href="{{url_for('main.add_to_my_bites', id=bite.id, city=city)}}" class="btn btn-primary">Grab a Bite</a><a href="{{url_for('main.bite')}}" class="btn btn-primary">Pass</a>
+        <br>
+        
     </div>
     </div>
 {% endif %}

@@ -81,6 +81,13 @@ def add_to_my_bites():
 @main.route('/pass_bite/<int:id>')
 @login_required
 def pass_bite(id):
-    pass_bite=Bite.qury.get(id)
+    pass_bite=Bite.query.get(id)
     current_user.pass_bite(id)
     return redirect(url_for("main.bite"))
+
+@main.route('pass_my_bites/<int:id>')
+@login_required
+def pass_my_bites(id):
+    pass_my_bites=Bite.query.get(id)
+    current_user.pass_my_bites(id)
+    return redirect(url_for("main.my_bites"))

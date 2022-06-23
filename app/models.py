@@ -1,5 +1,5 @@
 from app import db, login
-from flask_login import UserMixin
+from flask_login import UserMixin, current_user
 from datetime import datetime as dt
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -33,7 +33,6 @@ class User(UserMixin, db.Model):
         self.last_name = data['last_name']
         self.email=data['email']
         self.password = self.hash_password(data['password'])
-        self.icon = data['icon']
 
     def save(self):
         db.session.add(self)
@@ -42,7 +41,11 @@ class User(UserMixin, db.Model):
     def add_bites(self,bite):
         self.bites.append(bite)
         db.session.commit()
-    
+
+    def pass_my_bites(self,bite_id):
+        bite=Bite.query.get(bite_id)
+        current_user.bites.remove(bite)
+        db.session.commit()
 
     def get_icon_url(self):
         return f'https://avatars.dicebar.com/api/initials/{self.icon}.svg'

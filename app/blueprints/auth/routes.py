@@ -45,8 +45,8 @@ def register():
             new_user_object.from_dict(new_user_data)
             new_user_object.save()
         except:
-            flash("There was an unexpected error creating your account, try again later", "danger")
-            return render_template('register.html.j2', form=form)
+             flash("There was an unexpected error creating your account, try again later", "danger")
+             return render_template('register.html.j2', form=form)
         flash('You have successfully registered!', 'success')
         return redirect(url_for('auth.login'))
     return render_template('register.html.j2', form=form)
@@ -60,7 +60,6 @@ def edit_profile():
             "last_name": form.last_name.data.title(),
             "email": form.email.data.lower(),
             "password": form.password.data,
-            "icon": form.icon.data
             }
         user = User.query.filter_by(email=new_user_data["email"]).first()
         if user and user.email != current_user.email:
